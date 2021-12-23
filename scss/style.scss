@@ -1,0 +1,103 @@
+/*=========================================================================  
+[Table of contents]
+===========================================================================
+
+[partials/global]: Typography + global Css
+[partials/header]: Header Css
+CUSTOMIZE THE CAROUSEL
+MARKETING CONTENT
+RESPONSIVE CSS
+
+*/
+
+@import "utilitary/variables";
+@import "utilitary/utils";
+@import "utilitary/mixins";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "partials/global";
+@import "partials/header";
+@import "partials/footer";
+
+/*=======================================================================
+CUSTOMIZE THE CAROUSEL
+=========================================================================*/
+
+main {
+    margin-top: $navbar-height;
+}
+
+.title {
+    font-size: 2rem;
+    margin: 4rem auto;
+    text-align: center;
+}
+
+#submit-error-msg, small.validation-text {
+    font-size: 1.2rem;
+}
+
+/* Carousel base class */
+.carousel {
+    margin-bottom: 4rem;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+    height: 32rem;
+}
+.carousel-item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 32rem;
+}
+  
+/*=======================================================================
+MARKETING CONTENT
+=========================================================================*/
+  
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.marketing h2 {
+    font-weight: 400;
+}
+/* rtl:begin:ignore */
+.marketing .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+}
+/* rtl:end:ignore */
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+    /* rtl:remove */
+    letter-spacing: -.05rem;
+}
+  
+/*=======================================================================
+RESPONSIVE CSS
+=========================================================================*/
+@import "partials/media-query-xl"; // XL: 1200px - 1399px
+@import "partials/media-query-lg"; // LG: 992px - 1199px
+@import "partials/media-query-md"; // MD: 768px - 991px
+@import "partials/media-query-sm"; // SM: 576px - 767px
+@import "partials/media-query-xs"; // XS: 0px - 575px

@@ -1,0 +1,90 @@
+{
+  "name": "baseapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/src/bin/www.js",
+  "scripts": {
+    "copy-assets": "ts-node tools/copyAssets",
+    "start": "tsc && ts-node tools/copyAssets && nodemon dist/src/bin/www.js",
+    "dev": "npm run scss && nodemon -e ts  --exec \"npm run start\"",
+    "scss": "sass --style=compressed --update --no-source-map ./scss/style.scss ./public/style.css",
+    "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/**/*.ts'",
+    "lint": "eslint . --ext .ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azbouki/azbouki-base-app.git"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src",
+      "public",
+      "scss"
+    ],
+    "ext": "ejs, scss, js, ts",
+    "events": {
+      "restart": "npm run scss && ts-node tools/copyAssets"
+    }
+  },
+  "keywords": [],
+  "author": "Azbouki Software Ltd.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azbouki/azbouki-base-app/issues"
+  },
+  "homepage": "https://github.com/azbouki/azbouki-base-app#readme",
+  "devDependencies": {
+    "@tsconfig/node14": "^1.0.1",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/chai": "^4.2.21",
+    "@types/compression": "^1.7.1",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cors": "^2.8.12",
+    "@types/debug": "^4.1.7",
+    "@types/express": "^4.17.13",
+    "@types/mocha": "^9.0.0",
+    "@types/morgan": "^1.9.3",
+    "@types/mysql": "^2.15.19",
+    "@types/node": "^16.6.1",
+    "@types/q": "^1.5.5",
+    "@types/sass": "^1.16.1",
+    "@types/shelljs": "^0.8.9",
+    "@typescript-eslint/eslint-plugin": "^4.29.1",
+    "@typescript-eslint/parser": "^4.29.1",
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-jsdoc": "^36.0.7",
+    "mocha": "^9.0.3",
+    "ts-node": "^10.2.0"
+  },
+  "dependencies": {
+    "async": "^3.2.1",
+    "bcryptjs": "^2.4.3",
+    "bootstrap": "^5.1.0",
+    "compression": "^1.7.4",
+    "connect-multiparty": "^2.2.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "debug": "^4.3.2",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.12.1",
+    "helmet": "^4.6.0",
+    "install": "^0.13.0",
+    "jwt-simple": "^0.5.6",
+    "moment": "^2.29.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "nocache": "^3.0.1",
+    "npm": "^7.20.5",
+    "q": "^1.5.1",
+    "sass": "^1.37.5",
+    "serve-favicon": "^2.5.0",
+    "shelljs": "^0.8.4",
+    "underscore": "^1.13.1",
+    "winston": "^3.3.3"
+  }
+}

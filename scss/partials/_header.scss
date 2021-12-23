@@ -1,0 +1,35 @@
+/*=======================================================================
+Header Css
+=========================================================================*/
+.navbar {
+    background: rgb(33,0,36);
+    background: linear-gradient(180deg, rgba(33,0,36,1) 0%, rgba(53,5,54,1) 35%, rgba(78,4,97,1) 100%);  
+    
+    .navbar-brand {
+        font-size: 2rem;
+        padding: 2rem;
+        height: $navbar-height;
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-toggler {
+        margin-right: 2rem;
+    }
+
+    .navbar-nav {
+        display: flex;
+        height: $navbar-height;
+        align-items: center;
+        padding-right: 2rem;
+
+        #logout {
+            cursor: pointer;
+        }
+    }
+}
+
+
+
+
+    

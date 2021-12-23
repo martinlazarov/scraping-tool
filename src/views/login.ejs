@@ -1,0 +1,48 @@
+<!doctype html>
+<%- include('partials/head') %>
+<body>
+  <%- include('partials/header') %>
+  <main>
+
+    <section class="container">
+      <div class="title">Вход в системата</div>
+      <div class="row flex justify-content-center p-5">
+        <div class="col-12 col-md-6 col-lg-4">
+          <form id="jq-login-form" data-api-prefix="<%= cfg.apiPrefix %>">
+            <div class="input-fields-wrapper mt-auto">
+
+              <div class="form-group mb-3">
+                <label for="username">Потребителско име</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="jq-icon fas fa-user"></i></span>
+                  <input type="email" class="form-control form-control-lg" id="username" placeholder="Въведете имейл"
+                    aria-label="Поле за въвеждане на потребителско име/имейл за вход в системата">
+                </div>
+                <small class="validation-text text-danger d-none"></small>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="password">Парола</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="jq-icon fas fa-lock"></i></span>
+                  <input type="password" class="form-control form-control-lg" id="password" placeholder="Въведете парола"
+                    aria-label="Поле за въвеждане на потребителска парола за вход в системата">
+                </div>
+                <small class="validation-text text-danger d-none"></small>
+              </div>
+              <div class="form-group my-5 text-center">
+                <button class="btn-primary btn-lg w-50" type="submit">Вход</button>
+              </div>
+              <h5 id="submit-error-msg" class="text-danger w-100 text-center"></h5>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <%- include('partials/footer') %>
+  <%- include('partials/scripts') %>
+  <script src="/assets/js/login.js"></script>
+</body>
+</html>

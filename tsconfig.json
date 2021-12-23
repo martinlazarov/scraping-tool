@@ -1,0 +1,25 @@
+{
+  "extends": "@tsconfig/node14/tsconfig.json",
+
+  "compilerOptions": {
+    "lib": ["es2020"],
+    "module": "CommonJS",
+    "target": "es2020",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "removeComments": true,
+    "baseUrl": "./",
+    "strict": false
+  },
+  "include": ["src/**/*", "tools/**/*"],
+  "exclude": [
+    "./test/",
+    "node_modules",
+    "./dist/",
+    "./dashboard/"
+  ]
+}

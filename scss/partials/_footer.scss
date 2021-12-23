@@ -1,0 +1,24 @@
+/*=======================================================================
+Footer Css
+=========================================================================*/
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $footer-text-color;
+    background-color: $footer-background;
+    margin-top: auto;
+    min-height: 120px;
+
+    a {
+        color: $footer-link-color;
+
+        &:hover {
+            color: $footer-link-color-hover;
+        }
+    }
+
+    .footer-container {
+        text-align: center;
+    }
+}
