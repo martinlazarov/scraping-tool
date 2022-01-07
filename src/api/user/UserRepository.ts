@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs';
 import { LoginData } from "../models/LoginData";
+import { ScrapeData } from "../models/ScrapeData";
 import { User } from "../models/User";
 import { Roles } from '../../shared/enums/roles.enum';
 
@@ -41,6 +42,18 @@ export class UserRepository {
     const query = [
       'INSERT INTO `user` (`email`, `first_name`, `last_name`, `password`, `registration_token`, `phone_number`, `role`)',
       `VALUES (:email, :firstName, :lastName, '${bcrypt.hashSync(password)}', :registrationToken, :phoneNumber, ${Roles.User});` // eslint-disable-line
+    ].join(" ");
+
+    return this.mysql.makeQuery(query, data, function (result) {
+      return result.insertId; // eslint-disable-line
+    });
+  }
+
+  public insertData(data: ScrapeData): any {
+    const query = [
+      'DELETE FROM `items`',
+      'INSERT INTO `items` (`photo`, `title`, `price`, `link`)',
+      `VALUES (:photo, :title, :price, :link);` // eslint-disable-line
     ].join(" ");
 
     return this.mysql.makeQuery(query, data, function (result) {

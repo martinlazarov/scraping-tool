@@ -2,10 +2,11 @@
   "name": "baseapp",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/src/bin/www.js",
+  "main": "src/bin/index.ts",
   "scripts": {
     "copy-assets": "ts-node tools/copyAssets",
     "start": "tsc && ts-node tools/copyAssets && nodemon dist/src/bin/www.js",
+    "scrape": "nodemon src/bin/index.ts",
     "dev": "npm run scss && nodemon -e ts  --exec \"npm run start\"",
     "scss": "sass --style=compressed --update --no-source-map ./scss/style.scss ./public/style.css",
     "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/**/*.ts'",
@@ -61,8 +62,10 @@
   },
   "dependencies": {
     "async": "^3.2.1",
+    "axios": "^0.24.0",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.1.0",
+    "cheerio": "^1.0.0-rc.10",
     "compression": "^1.7.4",
     "connect-multiparty": "^2.2.0",
     "cookie-parser": "^1.4.5",

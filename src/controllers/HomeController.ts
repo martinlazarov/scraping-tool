@@ -31,8 +31,10 @@ export class HomeController {
   public index:any = (req: Request, res: Response) => {
     checkLoggedInAndSetActiveMenu(req);
 
+    const title = "Grosho"
+
     try {
-      res.render('../views/index', { cfg });
+      res.render('../views/index', { cfg, title: title });
     } catch (error) {
       console.log(error);
       this.onNotFoundError(req, res);
