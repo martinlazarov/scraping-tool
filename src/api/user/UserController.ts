@@ -5,11 +5,14 @@ import config from '../../config';
 import { INACTIVE_ACCOUNT_MESSAGE } from "../../shared/constants";
 import { AuthError } from "../../errors/AuthError";
 import { LoginData } from "../models/LoginData";
+import { ScrapeData } from "../models/ScrapeData";
 import { User } from "../models/User";
 import { UserRepository } from "./UserRepository";
 import { DatabaseError } from "../../errors/DatabaseError";
 import { NotFoundError } from '../../errors/NotFoundError';
 import { Utils } from "../common/Utils";
+import axios from 'axios';
+import cheerio from 'cheerio'
 
 export class UserController {
 
@@ -18,6 +21,34 @@ export class UserController {
   constructor(Repository: UserRepository) {
     this.repository = Repository;
   }
+
+  public scrape: any = async () => {
+
+    try {
+
+    const reqUrl = "https://numimarket.pl/kategoria/monety_21/1"
+    const response = await axios(reqUrl)
+    const html = response.data
+    const $ = cheerio.load(html)
+    let scraped;
+    $('.offer', html).each(function () {
+        const photo = $('.image', this).find('img').attr('src')
+        const title = $('.title', this).find('a').text()
+        const price = $('.price', this).find('p').text()
+        const url = $('.title', this).find('a').attr('href')
+        const data = {
+          photo: photo,
+          title: title,
+          price: price,
+          url: url
+        }
+        scraped = new ScrapeData(data)
+    })
+     await this.repository.insertData(scraped);
+  } catch(error) {
+    console.log(error)
+  }
+}
 
   public register: any = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
 
