@@ -26,29 +26,43 @@ export class UserController {
 
     try {
 
-    const reqUrl = "https://numimarket.pl/kategoria/monety_21/1"
-    const response = await axios(reqUrl)
-    const html = response.data
-    const $ = cheerio.load(html)
-    let scraped;
-    $('.offer', html).each(function () {
+      const reqUrl = "https://numimarket.pl/index/filters?perpage=2000&sort=desc"
+      const response = await axios(reqUrl)
+      const html = response.data
+      const $ = cheerio.load(html)
+      let scraped = [];
+      let data;
+      let dataArr = []
+      $('.offer', html).each(function () {
         const photo = $('.image', this).find('img').attr('src')
         const title = $('.title', this).find('a').text()
         const price = $('.price', this).find('p').text()
-        const url = $('.title', this).find('a').attr('href')
-        const data = {
+        const link = $('.image', this).find('a').attr('href')
+        data = {
           photo: photo,
           title: title,
           price: price,
-          url: url
+          link: link
         }
-        scraped = new ScrapeData(data)
-    })
-     await this.repository.insertData(scraped);
-  } catch(error) {
-    console.log(error)
+        dataArr.push(data)
+      })
+      dataArr.forEach(function (element) {
+        scraped.push(new ScrapeData(element))
+      })
+  
+      await this.repository.deleteData()
+
+      scraped.forEach(async (element) => {
+        await this.repository.insertData(element)
+      })
+    } catch (error) {
+      console.log(error)
+    }
   }
-}
+
+  public filter: any = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
+    console.log(req.body)
+  }
 
   public register: any = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
 

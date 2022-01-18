@@ -2,12 +2,16 @@
 import { environment, apiPrefix } from '../config';
 import { MENU, COOKIE_TOKEN_KEY } from '../shared/constants';
 import { Request, Response } from 'express';
+import { UserController } from '../api/user/UserController';
+import { UserRepository } from '../api/user/UserRepository';
 
 // necessary config file used in all templates
 const cfg = {
   environment,
   apiPrefix
 };
+
+const mysql = require('../lib/mysqlConnection/MysqlConnection')
 
 // processActiveMenu switch is used for pages (like 404) that cannot be made active, since
 // they are not part of the menu (there is no menu item to me made active)
@@ -19,7 +23,7 @@ const checkLoggedInAndSetActiveMenu = (req: Request, processActiveMenu = true): 
   cfg['MENU'] = MENU.map(item => {
     if (cfg['loggedIn'] && item.url === '/login') return false;
 
-    item['active'] = item.url === requestUrl ?  true : false;
+    item['active'] = item.url === requestUrl ? true : false;
     return item;
 
   }).filter(item => item);
@@ -28,22 +32,27 @@ const checkLoggedInAndSetActiveMenu = (req: Request, processActiveMenu = true): 
 
 export class HomeController {
 
-  public index:any = (req: Request, res: Response) => {
+  public index: any = async (req: Request, res: Response) => {
     checkLoggedInAndSetActiveMenu(req);
 
-    const title = "Grosho"
-
     try {
-      res.render('../views/index', { cfg, title: title });
+
+      const userRepository = new UserRepository(mysql)
+      const userController = new UserController(userRepository)
+      await userController.scrape()
+      const show = await userRepository.getData()
+
+      res.render('../views/index', { cfg, show: show, filter: await userController.filter() });
+
     } catch (error) {
       console.log(error);
       this.onNotFoundError(req, res);
     }
   };
 
-  public login:any = (req: Request, res: Response) => {
+  public login: any = (req: Request, res: Response) => {
     checkLoggedInAndSetActiveMenu(req);
-    
+
     try {
       res.render('../views/login', { cfg });
     } catch (error) {
@@ -52,7 +61,7 @@ export class HomeController {
     }
   };
 
-  public adminPanel:any = (req: Request, res: Response) => {
+  public adminPanel: any = (req: Request, res: Response) => {
     checkLoggedInAndSetActiveMenu(req, false);
 
     const user = req['user'];

@@ -8,6 +8,7 @@ import cookieParser from 'cookie-parser';
 import path from 'path';
 import { errorHandler } from "./errors/ErrorHandler";
 import routes from './routes';
+import bodyParser from 'body-parser';
 
 const app = express();
 
@@ -26,6 +27,8 @@ app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 routes(app);
 app.use(express.static(path.join(__dirname, 'public')));
