@@ -33,7 +33,7 @@ export class UserRepository {
 
     return this.mysql.makeQuery(query, { email }, function (users) {
       return (users && users.length > 0)
-        ? new User(users[0]).id 
+        ? new User(users[0]).id
         : null;
     });
   }
@@ -49,9 +49,29 @@ export class UserRepository {
     });
   }
 
+  public getData(): any {
+    const query = 'SELECT id, photo, title, price, link FROM items'
+
+    return this.mysql.makeQuery(query, {}, function (result) {
+      console.log(result)
+      return result; // eslint-disable-line
+    }, true);
+  }
+
+  public filterData(): any {
+    const query = ''
+  }
+
+  public deleteData(): any {
+    const query = 'TRUNCATE TABLE items;'
+    
+    return this.mysql.makeQuery(query, {}, function (result) {
+      return result; // eslint-disable-line
+    });
+  }
+
   public insertData(data: ScrapeData): any {
     const query = [
-      'DELETE FROM `items`',
       'INSERT INTO `items` (`photo`, `title`, `price`, `link`)',
       `VALUES (:photo, :title, :price, :link);` // eslint-disable-line
     ].join(" ");

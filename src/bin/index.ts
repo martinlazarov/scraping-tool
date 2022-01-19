@@ -5,7 +5,7 @@ import cheerio from 'cheerio'
 import express from 'express'
 const PORT = 3100
 const app = express()
-const reqUrl = "https://numimarket.pl/kategoria/monety_21/1"
+const reqUrl = "https://numimarket.pl/index/filters?perpage=2000&sort=desc"
 
 async function pullData() {
     const response = await axios(reqUrl)

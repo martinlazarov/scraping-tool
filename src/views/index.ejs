@@ -5,8 +5,30 @@
   <%- include('partials/header') %>
   <main>
     <div class="text-center">
-    <button class="btn-secondary btn-block btn-lg w-50" type="button">Refresh</button>
-  </div>
+      <a href="/">
+    <button class="btn-secondary btn-block btn-lg w-50" type="button" >Refresh</button>
+      </a>
+      <br>
+      <form id="filter">
+        <p>Search by title:</p>  
+        <div class="form-group">
+        <input class="form-control" name="filterTitle" id="filterTitle" type="text" placeholder="Title">
+        <br>
+        </div>
+        <p>Search by price:</p>  
+        <div class="form-group">
+        <input class="form-control" name="filterMinPrice" id="filterMinPrice" type="text" placeholder="Minimal price">
+        <br>
+        </div>
+        <div class="form-group">
+        <input class="form-control" name="filterMaxPrice" id="filterMaxPrice" type="text" placeholder="Maximum price">
+        <br>
+        </div>
+        <div class="form-group">
+        <button class="btn-primary btn-block btn-lg w-50" onclick="<%= filter %>" type="submit">Search</button>
+        </div>
+      </form>
+    </div>
     <table class="table">
       <thead class="thead-dark">
         <tr>
@@ -18,13 +40,15 @@
         </tr>
       </thead>
       <tbody>
+        <% show.forEach(item => { %>
         <tr>
-          <th scope="row">1</th>
-          <td>Grosh-IMG</td>
-          <td><%= title %></td>
-          <td>Grosh-Price</td>
-          <td>Grosh-URL</td>
+          <th scope="row"><%= item.id %></th>
+          <td><img src="https://numimarket.pl<%= item.photo %>" alt="Image" width="150" height="150"></td>
+          <td><%= item.title %></td>
+          <td><%= item.price %></td>
+          <td><a href="https://numimarket.pl<%= item.link %>" target="blank">https://numimarket.pl<%= item.link %></a></td>
         </tr>
+        <% }) %>
       </tbody>
     </table>
   </main>
