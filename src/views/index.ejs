@@ -1,58 +1,75 @@
 <!doctype html>
 <%- include('partials/head') %>
 
-<body>
-  <%- include('partials/header') %>
-  <main>
-    <div class="text-center">
-      <a href="/">
-    <button class="btn-secondary btn-block btn-lg w-50" type="button" >Refresh</button>
-      </a>
-      <br>
-      <form id="filter">
-        <p>Search by title:</p>  
-        <div class="form-group">
-        <input class="form-control" name="filterTitle" id="filterTitle" type="text" placeholder="Title">
-        <br>
+  <body>
+    <%- include('partials/header') %>
+      <main>
+        <div class="text-center">
+          <div class="row flex justify-content-center p-5">
+            <div class="col-20 col-md-6 col-lg-4">
+              <form id="filter">
+                <p>Search by:</p>
+                <div class="row">
+                  <div class="form-group col-sm-3">
+                    <div class="input-group input-group-lg">
+                      <input class="form-control" name="title" id="filterTitle" type="text" placeholder="Title">
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-3">
+                    <div class="input-group input-group-lg">
+                      <input class="form-control" name="minPrice" id="filterMinPrice" type="text" placeholder="Min price">
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-3">
+                    <div class="input-group input-group-lg">
+                      <input class="form-control" name="maxPrice" id="filterMaxPrice" type="text" placeholder="Max price">
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-3">
+                    <button class="btn-primary" type="submit">Search</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-        <p>Search by price:</p>  
-        <div class="form-group">
-        <input class="form-control" name="filterMinPrice" id="filterMinPrice" type="text" placeholder="Minimal price">
-        <br>
-        </div>
-        <div class="form-group">
-        <input class="form-control" name="filterMaxPrice" id="filterMaxPrice" type="text" placeholder="Maximum price">
-        <br>
-        </div>
-        <div class="form-group">
-        <button class="btn-primary btn-block btn-lg w-50" onclick="<%= filter %>" type="submit">Search</button>
-        </div>
-      </form>
-    </div>
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">Offer</th>
-          <th scope="col">Image</th>
-          <th scope="col">Title</th>
-          <th scope="col">Price</th>
-          <th scope="col">URL</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% show.forEach(item => { %>
-        <tr>
-          <th scope="row"><%= item.id %></th>
-          <td><img src="https://numimarket.pl<%= item.photo %>" alt="Image" width="150" height="150"></td>
-          <td><%= item.title %></td>
-          <td><%= item.price %></td>
-          <td><a href="https://numimarket.pl<%= item.link %>" target="blank">https://numimarket.pl<%= item.link %></a></td>
-        </tr>
-        <% }) %>
-      </tbody>
-    </table>
-  </main>
-  <%- include('partials/footer') %>
-  <%- include('partials/scripts') %>
-</body>
-</html>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Offer</th>
+              <th scope="col">Image</th>
+              <th scope="col">Title</th>
+              <th scope="col">Price</th>
+              <th scope="col">Currency</th>
+              <th scope="col">URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% show.forEach(item=> { %>
+              <tr>
+                <th scope="row">
+                  <%= item.id %>
+                </th>
+                <td><img src="<%= item.photo %>" alt="Image" width="150" height="150"></td>
+                <td>
+                  <%= item.title %>
+                </td>
+                <td>
+                  <%= item.price %>
+                </td>
+                <td>
+                  <%= item.currency %>
+                </td>
+                <td><a href="<%= item.link %>" target="blank">
+                    <%= item.link %>
+                  </a></td>
+              </tr>
+              <% }) %>
+          </tbody>
+        </table>
+      </main>
+      <%- include('partials/footer') %>
+        <%- include('partials/scripts') %>
+  </body>
+
+  </html>

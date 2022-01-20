@@ -5,23 +5,23 @@ import cheerio from 'cheerio'
 import express from 'express'
 const PORT = 3100
 const app = express()
-const reqUrl = "https://numimarket.pl/index/filters?perpage=2000&sort=desc"
+const reqUrl = "https://www.ma-shops.com/euro/?limit=200&yearstart=1800&gallery=1&ajax=37pf"
 
 async function pullData() {
     const response = await axios(reqUrl)
     const html = response.data
     const $ = cheerio.load(html)
-    $('.offer', html).each(function () {
+    $('td', html).each(function () {
         console.log("OFFER")
-        const photo = $('.image', this).find('img').attr('src')
-        console.log(photo)
-        const title = $('.title', this).find('a').text()
-        console.log(title)
-        const price = $('.price', this).find('p').text()
+        const photo = $('.middle', this).find('img').attr('src')
+        const title = $('.middle', this).find('img').attr('title')
+        const raw = $('a ~ .price', this).text()
+        const txt = raw.split(',').join('.')
+        const price = parseFloat(txt).toFixed(2);
         console.log(price)
-        const url = $('.title', this).find('a').attr('href')
-        console.log(url)
-        
+        const currency = txt.split(price.toString()).pop()
+        console.log(currency)
+        const link = $('a', this).attr('href')
     })
 }
 

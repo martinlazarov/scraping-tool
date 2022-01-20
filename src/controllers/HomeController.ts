@@ -4,6 +4,7 @@ import { MENU, COOKIE_TOKEN_KEY } from '../shared/constants';
 import { Request, Response } from 'express';
 import { UserController } from '../api/user/UserController';
 import { UserRepository } from '../api/user/UserRepository';
+import { async } from 'q';
 
 // necessary config file used in all templates
 const cfg = {
@@ -12,6 +13,8 @@ const cfg = {
 };
 
 const mysql = require('../lib/mysqlConnection/MysqlConnection')
+const userRepository = new UserRepository(mysql)
+const userController = new UserController(userRepository)
 
 // processActiveMenu switch is used for pages (like 404) that cannot be made active, since
 // they are not part of the menu (there is no menu item to me made active)
@@ -32,17 +35,18 @@ const checkLoggedInAndSetActiveMenu = (req: Request, processActiveMenu = true): 
 
 export class HomeController {
 
+  public initiateScrape: any = async (req: Request, res: Response) => {
+    
+  }
+
   public index: any = async (req: Request, res: Response) => {
     checkLoggedInAndSetActiveMenu(req);
 
     try {
-
-      const userRepository = new UserRepository(mysql)
-      const userController = new UserController(userRepository)
+      
       await userController.scrape()
-      const show = await userRepository.getData()
-
-      res.render('../views/index', { cfg, show: show, filter: await userController.filter() });
+      const show = await userRepository.getData(req.query)
+      res.render('../views/index', { cfg, show: show });
 
     } catch (error) {
       console.log(error);
