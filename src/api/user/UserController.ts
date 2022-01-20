@@ -33,6 +33,7 @@ export class UserController {
       let scraped = [];
       let data;
       let dataArr = []
+      console.log('>>>', $('.offer', html).length);
       $('.offer', html).each(function () {
         const photo = $('.image', this).find('img').attr('src')
         const title = $('.title', this).find('a').text()

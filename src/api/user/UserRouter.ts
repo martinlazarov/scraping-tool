@@ -13,7 +13,7 @@ export class UserRouter extends BaseRouter {
   }
 
   private buildRoutes() {
-    this.router.post('/', this.controller.filter)
+    this.router.get('/', this.controller.filter)
     this.router.post('/register', this.controller.register);
     this.router.post('/login', this.controller.login);
     this.router.get('/me', auth.userCheck, this.controller.getMe);

@@ -41,8 +41,8 @@ export class HomeController {
       const userController = new UserController(userRepository)
       await userController.scrape()
       const show = await userRepository.getData()
-
-      res.render('../views/index', { cfg, show: show, filter: await userController.filter() });
+      const { params }  = req.body;
+      res.render('../views/index', { cfg, show: show, filter: await userController.filter(params) });
 
     } catch (error) {
       console.log(error);

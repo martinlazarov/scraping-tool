@@ -59,51 +59,51 @@ jQuery(window).on('load', function () {
         
     }
     
-    const gdprAgreement = JSON.parse(localStorage.getItem('gdpr-agree-with-terms'));
+    // const gdprAgreement = JSON.parse(localStorage.getItem('gdpr-agree-with-terms'));
 
-    // Check if user has accepted the GDPR policy
-    if (!gdprAgreement && !modalIsOpen) {
+    // // Check if user has accepted the GDPR policy
+    // if (!gdprAgreement && !modalIsOpen) {
 
-        $.get('/assets/policies/privacy-policy.ejs')
-            .done((theAgreement) => {
+    //     $.get('/assets/policies/privacy-policy')
+    //         .done((theAgreement) => {
                 
-                const modalWindow = $('#jq-modal');
-                const modalGDPR = $('#jq-modal .modal-gdpr');
-                modalWindow.css({
-                    backgroundColor: '#000000bb'
-                });
-                const privacyAgreement = privacyPolicyBoilerPlate.replace(/THE_AGREEMENT/g, theAgreement);
-                modalWindow.html(privacyAgreement);
+    //             const modalWindow = $('#jq-modal');
+    //             const modalGDPR = $('#jq-modal .modal-gdpr');
+    //             modalWindow.css({
+    //                 backgroundColor: '#000000bb'
+    //             });
+    //             const privacyAgreement = privacyPolicyBoilerPlate.replace(/THE_AGREEMENT/g, theAgreement);
+    //             modalWindow.html(privacyAgreement);
 
-                modalWindow.modal({backdrop: 'static', keyboard: false});
-                modalWindow.modal('show');
+    //             modalWindow.modal({backdrop: 'static', keyboard: false});
+    //             modalWindow.modal('show');
 
-                $('#gdpr-consent-btn').click(function() {
-                    modalGDPR.modal('hide');
-                    localStorage.setItem('gdpr-agree-with-terms', 'true')
-                    processCookieConsent();
-                });
-            });
+    //             $('#gdpr-consent-btn').click(function() {
+    //                 modalGDPR.modal('hide');
+    //                 localStorage.setItem('gdpr-agree-with-terms', 'true')
+    //                 processCookieConsent();
+    //             });
+    //         });
             
-    } else {
-        processCookieConsent();
-    }
+    // } else {
+    //     processCookieConsent();
+    // }
 
-    $('#tos-business').click((evt) => {
-        evt.preventDefault();
-        $.get('/assets/policies/terms-of-service-business.ejs')
-            .done((theTerms) => {
-                const modalWindowTOS = $('#jq-modal');
-                const modalTOS = $('#jq-modal .modal-gdpr');
-                const termsOfService = TOSBusinessBoilerPlate.replace(/THE_TERMS/g, theTerms)
-                modalWindowTOS.html(termsOfService);
-                modalWindowTOS.modal('show');
+    // $('#tos-business').click((evt) => {
+    //     evt.preventDefault();
+    //     $.get('/assets/policies/terms-of-service-business.ejs')
+    //         .done((theTerms) => {
+    //             const modalWindowTOS = $('#jq-modal');
+    //             const modalTOS = $('#jq-modal .modal-gdpr');
+    //             const termsOfService = TOSBusinessBoilerPlate.replace(/THE_TERMS/g, theTerms)
+    //             modalWindowTOS.html(termsOfService);
+    //             modalWindowTOS.modal('show');
 
-                $('#tos-business-close').click(function() {
-                    modalTOS.modal('hide');
-                });
-            });
-    });
+    //             $('#tos-business-close').click(function() {
+    //                 modalTOS.modal('hide');
+    //             });
+    //         });
+    // });
 
     $('#logout').on('click', () => {
         if (confirm('Сигурни ли сте, че искате да излезнете от системата?')) {
