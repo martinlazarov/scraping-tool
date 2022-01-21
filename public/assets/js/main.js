@@ -1,5 +1,6 @@
 // for functions and vars used in this script, please refer to ./common.js
 
+
 jQuery(window).on('load', () => {
 
     $('#scrape').on('click', () => {
@@ -12,6 +13,4 @@ jQuery(window).on('load', () => {
             setTimeout(function () {
                 window.location.reload();
             }, 15000);
-        }
-    })
-});
+
