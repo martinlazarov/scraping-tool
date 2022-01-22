@@ -13,9 +13,10 @@ import bodyParser from 'body-parser';
 const app = express();
 
 app.use(cors({
-    origin: true,
-    credentials: true
+  origin: true,
+  credentials: true
 }));
+
 app.use(helmet());
 app.use(noCache());
 app.use(helmet.xssFilter());
@@ -30,9 +31,17 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use(function (req, res, next) {
+  res.setHeader(
+    'Content-Security-Policy',
+    `default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline'`
+  );
+  next();
+});
+
 routes(app);
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Credentials", "true");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
