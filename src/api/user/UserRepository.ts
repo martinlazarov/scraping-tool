@@ -49,17 +49,24 @@ export class UserRepository {
     });
   }
 
-  public getData(): any {
-    const query = 'SELECT id, photo, title, price, link FROM items'
+  public getData(params): any {
 
-    return this.mysql.makeQuery(query, {}, function (result) {
+    let query = 'SELECT id, photo, title, price, currency, link FROM items WHERE 1'
+
+    if (params.title) {
+      query += ` AND title LIKE '%${params.title}%'`
+    }
+    if (params.minPrice) {
+      query += ` AND price >= ${params.minPrice}`
+    }
+    if (params.maxPrice) {
+      query += ` AND price <= ${params.maxPrice}`
+    }
+
+    return this.mysql.makeQuery(query, { params }, function (result) {
       console.log(result)
       return result; // eslint-disable-line
     }, true);
-  }
-
-  public filterData(): any {
-    const query = ''
   }
 
   public deleteData(): any {
@@ -72,8 +79,8 @@ export class UserRepository {
 
   public insertData(data: ScrapeData): any {
     const query = [
-      'INSERT INTO `items` (`photo`, `title`, `price`, `link`)',
-      `VALUES (:photo, :title, :price, :link);` // eslint-disable-line
+      'INSERT INTO `items` (`photo`, `title`, `price`, `currency`, `link`)',
+      `VALUES (:photo, :title, :price, :currency, :link);` // eslint-disable-line
     ].join(" ");
 
     return this.mysql.makeQuery(query, data, function (result) {

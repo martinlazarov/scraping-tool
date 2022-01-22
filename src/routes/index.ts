@@ -14,6 +14,7 @@ export = function (app: express.Express) {
 
   app.use('/', router);
   app.get('/', homeController.index);
+  app.get('/scrape', homeController.scrape)
   app.get('/login', homeController.login);
   app.get('/admin', auth.publicAdminCheck, homeController.adminPanel);
   app.get('/404', homeController.onNotFoundError);

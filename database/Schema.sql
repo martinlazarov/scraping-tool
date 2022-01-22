@@ -54,7 +54,8 @@ CREATE TABLE `items` (
 `id`INT NOT NULL AUTO_INCREMENT,
 `photo` VARCHAR(255),
 `title` VARCHAR(255),
-`price` VARCHAR(255),
+`price` FLOAT(24),
+`currency` VARCHAR(255),
 `link` VARCHAR(255),
 `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (id)
