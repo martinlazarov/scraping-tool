@@ -17,12 +17,14 @@
                   </div>
                   <div class="form-group col-sm-3">
                     <div class="input-group input-group-lg">
-                      <input class="form-control" name="minPrice" id="filterMinPrice" type="text" placeholder="Min price">
+                      <input class="form-control" name="minPrice" id="filterMinPrice" type="text"
+                        placeholder="Min price">
                     </div>
                   </div>
                   <div class="form-group col-sm-3">
                     <div class="input-group input-group-lg">
-                      <input class="form-control" name="maxPrice" id="filterMaxPrice" type="text" placeholder="Max price">
+                      <input class="form-control" name="maxPrice" id="filterMaxPrice" type="text"
+                        placeholder="Max price">
                     </div>
                   </div>
                   <div class="form-group col-sm-3">
@@ -50,7 +52,8 @@
                 <th scope="row">
                   <%= item.id %>
                 </th>
-                <td><img src="<%= item.photo %>" alt="Image" width="150" height="150"></td>
+                <td>
+                  <div class="item-image" style="background-image: url(<%= item.photo %>);"></div>
                 <td>
                   <%= item.title %>
                 </td>
