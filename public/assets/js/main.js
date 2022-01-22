@@ -1,5 +1,6 @@
 // for functions and vars used in this script, please refer to ./common.js
 
+
 jQuery(window).on('load', () => {
 
     $('#scrape').on('click', () => {
