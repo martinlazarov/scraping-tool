@@ -9,9 +9,12 @@ jQuery(window).on('load', () => {
                 url: "/scrape",
                 dataType: "script"
             })
-            setTimeout(function () {
-                window.location.reload();
-            }, 15000);
+                .done(function () {
+                    window.location.reload();
+                })
+                .fail(function () {
+                    alert("Failed to scrape results")
+                })
         }
     })
 });

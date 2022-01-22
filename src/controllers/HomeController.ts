@@ -35,7 +35,7 @@ const checkLoggedInAndSetActiveMenu = (req: Request, processActiveMenu = true): 
 
 
 export class HomeController {
-  
+
 
   public scrape: any = async () => {
 
@@ -54,9 +54,8 @@ export class HomeController {
             const response = await axios(sites[0].reqUrls[i])
             const html = response.data
             const $ = cheerio.load(html)
-            let scraped = [];
-            let data;
-            let dataArr = []
+            const scraped = [];
+            const dataArr = [];
             $('.offers', html).find('.offer').each(function () {
               const photo = $('.image', this).find('img').attr('src')
               const title = $('.title', this).find('a').text()
@@ -65,7 +64,7 @@ export class HomeController {
               const price = parseFloat(text);
               const currency = text.split(price.toString()).pop()
               const link = $('.image', this).find('a').attr('href')
-              data = {
+              let data = {
                 photo: 'https://numimarket.pl' + photo,
                 title: title,
                 price: price,
@@ -95,9 +94,8 @@ export class HomeController {
             const response = await axios(sites[1].reqUrls[i])
             const html = response.data
             const $ = cheerio.load(html)
-            let scraped = [];
-            let data;
-            let dataArr = []
+            const scraped = [];
+            const dataArr = [];
             $('td', html).each(function () {
               const photo = $('.middle', this).find('img').attr('src')
               const title = $('.middle', this).find('img').attr('title')
@@ -106,7 +104,7 @@ export class HomeController {
               const price = parseFloat(txt).toFixed(2);
               const currency = txt.split(price.toString()).pop()
               const link = $('a', this).attr('href')
-              data = {
+              let data = {
                 photo: photo,
                 title: title,
                 price: price,
