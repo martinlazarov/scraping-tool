@@ -58,8 +58,10 @@ export class HomeController {
           const title = $('.title', this).find('a').text()
           const rawPrice = $('.price', this).find('p:first-of-type').text()
           const text = rawPrice.split(' ').join('')
-          const price = parseFloat(text);
-          const currency = text.split(price.toString()).pop()
+          const priceZl = parseFloat(text);
+          const price = priceZl * 0.22;
+          const currencyZl = text.split(priceZl.toString()).pop()
+          const currency = currencyZl.replace('zł', 'EUR')
           const link = $('.image', this).find('a').attr('href');
           scraped.push(new ScrapeData({
             title,
@@ -97,7 +99,7 @@ export class HomeController {
           const rawPrice = $('a ~ .price', this).text()
           const txt = rawPrice.split(',').join('.')
           const price = parseFloat(txt);
-          const currency = txt.split(price.toString()).pop()
+          const currency = txt.split(price.toFixed(2).toString()).pop()
           const link = $('a', this).attr('href')
           scraped.push(new ScrapeData({
             photo,
@@ -135,7 +137,7 @@ export class HomeController {
     try {
 
       const show = await userRepository.getData(req.query)
-      res.render('../views/index', { cfg, show: show });
+      res.render('../views/index', { cfg, show: show, searched: req.query });
 
     } catch (error) {
       console.log(error);
