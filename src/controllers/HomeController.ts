@@ -43,6 +43,7 @@ export class HomeController {
       'https://numimarket.pl/kategoria/monety_21/3',
       'https://numimarket.pl/kategoria/monety_21/4'
     ],
+    convUrl: 'https://www.x-rates.com/calculator/?from=PLN&to=EUR&amount=1',
     strategy: async (site) => {
       console.log('>>>>', site);
       const baseUrl = 'https://numimarket.pl';
@@ -52,18 +53,24 @@ export class HomeController {
         const response = await axios(url);
         const html = response.data
         const $ = cheerio.load(html)
-        const scraped = [];
+
+        const response1 = await axios(this.sites[0].convUrl)
+        const html1 = response1.data
+        const $1 = cheerio.load(html1)
+        const rate = $1('.ccOutputRslt', html1).text()
+
         $('.offers', html).find('.offer').each(function () {
           const photo = $('.image', this).find('img').attr('src')
           const title = $('.title', this).find('a').text()
           const rawPrice = $('.price', this).find('p:first-of-type').text()
           const text = rawPrice.split(' ').join('')
           const priceZl = parseFloat(text);
-          const price = priceZl * 0.22;
+          const convert = Number(parseFloat(rate).toFixed(2))
+          const price = priceZl * convert;
           const currencyZl = text.split(priceZl.toString()).pop()
           const currency = currencyZl.replace('zł', 'EUR')
           const link = $('.image', this).find('a').attr('href');
-          scraped.push(new ScrapeData({
+          userRepository.insertData(new ScrapeData({
             title,
             price,
             currency,
@@ -71,9 +78,6 @@ export class HomeController {
             link: `${baseUrl}${link}`
           }))
         })
-        scraped.forEach(async (element) => {
-          userRepository.insertData(element)
-        });
       }
     }
   },
@@ -92,7 +96,6 @@ export class HomeController {
         const response = await axios(url)
         const html = response.data
         const $ = cheerio.load(html)
-        const scraped = [];
         $('td', html).each(function () {
           const photo = $('.middle', this).find('img').attr('src')
           const title = $('.middle', this).find('img').attr('title')
@@ -101,16 +104,13 @@ export class HomeController {
           const price = parseFloat(txt);
           const currency = txt.split(price.toFixed(2).toString()).pop()
           const link = $('a', this).attr('href')
-          scraped.push(new ScrapeData({
+          userRepository.insertData(new ScrapeData({
             photo,
             title,
             price,
             currency,
             link
           }));
-        })
-        scraped.forEach((element) => {
-          userRepository.insertData(element)
         })
       }
     }
