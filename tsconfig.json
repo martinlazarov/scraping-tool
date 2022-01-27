@@ -1,10 +1,11 @@
 {
   "extends": "@tsconfig/node14/tsconfig.json",
-
   "compilerOptions": {
-    "lib": ["es2020", "ES2021.String"],
+    "lib": [
+      "es2015"
+    ],
     "module": "CommonJS",
-    "target": "es2020",
+    "target": "es6",
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "dist",
@@ -15,7 +16,10 @@
     "baseUrl": "./",
     "strict": false
   },
-  "include": ["src/**/*", "tools/**/*"],
+  "include": [
+    "src/**/*",
+    "tools/**/*"
+  ],
   "exclude": [
     "./test/",
     "node_modules",
