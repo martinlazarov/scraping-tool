@@ -114,6 +114,261 @@ export class HomeController {
         })
       }
     }
+  },
+  {
+    title: 'Antika',
+    reqUrls: [
+      "https://www.antika.fr/catalog2/",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40047&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40217&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40244&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40043&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40219&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40222&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40225&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40025&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40174&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40052&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40055&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40062&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40069&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40006&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40008&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40009&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40010&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40012&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40013&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40098&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40014&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40017&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40117&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40043&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40028&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40129&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40030&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40135&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40034&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40037&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40150&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40215&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11499&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11516&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11520&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11534&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11536&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11546&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11548&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11550&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11554&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11556&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11560&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11562&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11566&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11568&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11570&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11572&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11574&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11576&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11578&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10012_1999&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10012_2000&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10012_2001&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10012_2002&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10012_2005&limit=100",
+    ],
+    strategy: async (site) => {
+      for (let i = 0; i < site.reqUrls.length; i++) {
+        const url = site.reqUrls[i];
+        console.log('URL scraped:', url)
+        const response = await axios(url)
+        const html = response.data
+        const $ = cheerio.load(html)
+        $('.product-thumb', html).each(function () {
+          const photo = $('.image', this).find('img').attr('src')
+          const title = $('h4', this).find('a').text()
+          const rawPrice = $('.price', this).text()
+          const text = rawPrice.split(',').join('')
+          const price = Number(parseFloat(text))
+          const currency = text.split(price.toFixed(2)).pop()
+          const link = $('h4', this).find('a').attr('href');
+          userRepository.insertData(new ScrapeData({
+            photo,
+            title,
+            price,
+            currency,
+            link
+          }));
+        })
+      }
+    }
+  },
+  {
+    title: 'Inter Coin',
+    reqUrls: [
+      "https://inter-coin.com/gold/gold-coins?limit=1000",
+      "https://inter-coin.com/silver/silver-coins?limit=1000"
+    ],
+    strategy: async (site) => {
+      for (let i = 0; i < site.reqUrls.length; i++) {
+        const url = site.reqUrls[i];
+        console.log('URL scraped:', url)
+        const response = await axios(url)
+        const html = response.data
+        const $ = cheerio.load(html)
+        $('.product-thumb', html).each(function () {
+          const photo = $('.image', this).find('img').attr('src')
+          const title = $('h4', this).find('a').text()
+          const rawPrice = $('.price', this).text()
+          const text = rawPrice.split(',').join('')
+          const price = Number(parseFloat(text))
+          const currency = text.split(price.toFixed(2)).pop()
+          const link = $('h4', this).find('a').attr('href');
+          userRepository.insertData(new ScrapeData({
+            photo,
+            title,
+            price,
+            currency,
+            link
+          }));
+        })
+      }
+    }
+  },
+  {
+    title: 'Via Numismatic',
+    reqUrls: [
+      "https://www.via-numismatic.com/muenzshop/gold/?p=1",
+      "https://www.via-numismatic.com/muenzshop/gold/?p=2",
+      "https://www.via-numismatic.com/muenzshop/gold/?p=3",
+      "https://www.via-numismatic.com/muenzshop/gold/?p=4",
+      "https://www.via-numismatic.com/muenzshop/gold/?p=5",
+      "https://www.via-numismatic.com/muenzshop/gold/?p=6",
+      "https://www.via-numismatic.com/muenzshop/gold/?p=7",
+      "https://www.via-numismatic.com/muenzshop/gold/?p=8",
+      "https://www.via-numismatic.com/muenzshop/gold/?p=9",
+      "https://www.via-numismatic.com/muenzshop/gold/?p=10",
+      "https://www.via-numismatic.com/muenzshop/gold/?p=11",
+      "https://www.via-numismatic.com/muenzshop/gold/?p=12",
+      "https://www.via-numismatic.com/muenzshop/gold/?p=13",
+      "https://www.via-numismatic.com/muenzshop/gold/?p=14",
+      "https://www.via-numismatic.com/muenzshop/gold/?p=16",
+      "https://www.via-numismatic.com/muenzshop/gold/?p=17",
+      "https://www.via-numismatic.com/muenzshop/gold/?p=18",
+      "https://www.via-numismatic.com/muenzshop/gold/?p=19"
+    ],
+    strategy: async (site) => {
+      for (let i = 0; i < site.reqUrls.length; i++) {
+        const url = site.reqUrls[i];
+        console.log('URL scraped:', url)
+        const response = await axios(url)
+        const html = response.data
+        const $ = cheerio.load(html)
+        $('.listing', html).find('.product--info').each(function () {
+          const rawPhoto = $('.image--element', this).find('img').attr('srcset')
+          const photo = rawPhoto.split(',')[0]
+          const title = $(this).find('a').attr('title')
+          const rawPrice = $('.price--default', this).text()
+          const truePrice = rawPrice.split('.').join('')
+          const text = truePrice.split(',').join('.')
+          const price = Number(parseFloat(text))
+          const rawCurrency = text.split(price.toFixed(2)).pop()
+          const currency = rawCurrency.replace('*', '')
+          const link = $(this).find('a').attr('href')
+          userRepository.insertData(new ScrapeData({
+            photo,
+            title,
+            price,
+            currency,
+            link
+          }));
+        })
+      }
+    }
+  },
+  {
+    title: 'Theopeters',
+    reqUrls: [
+      "https://www.theopeters.com/beleggingsmunten/?page=all"
+    ],
+    strategy: async (site) => {
+      for (let i = 0; i < site.reqUrls.length; i++) {
+        const url = site.reqUrls[i];
+        console.log('URL scraped:', url)
+        const response = await axios(url)
+        const html = response.data
+        const $ = cheerio.load(html)
+        $('.div_product_counter', html).each(function () {
+          const photoPrefix = 'https://www.theopeters.com/images/productimages/small/'
+          const photo = $(this).find('img').attr('data-image')
+          const title = $(this).find('h2').text()
+          const rawPrice = $(this).find('.currency_price').text()
+          const truePrice = rawPrice.split('.').join('')
+          const text = truePrice.split(',').join('.')
+          const price = Number(parseFloat(text))
+          const currency = $(this).find('.currency_symbol').text()
+          const link = $(this).find('a').attr('href')
+          userRepository.insertData(new ScrapeData({
+            photo: `${photoPrefix}${photo}`,
+            title,
+            price,
+            currency,
+            link
+          }));
+        })
+      }
+    }
+  },
+  {
+    title: 'CtmpNumis',
+    reqUrls: [
+      "https://www.ctmpnumis.fr/en/product-category/gold/",
+      "https://www.ctmpnumis.fr/en/product-category/gold/page/2/",
+      "https://www.ctmpnumis.fr/en/product-category/gold/page/3/",
+      "https://www.ctmpnumis.fr/en/product-category/gold/page/4/",
+      "https://www.ctmpnumis.fr/en/product-category/gold/page/5/",
+      "https://www.ctmpnumis.fr/en/product-category/gold/page/6/",
+      "https://www.ctmpnumis.fr/en/product-category/gold/page/7/",
+      "https://www.ctmpnumis.fr/en/product-category/gold/page/8/",
+      "https://www.ctmpnumis.fr/en/product-category/gold/page/9/",
+      "https://www.ctmpnumis.fr/en/product-category/gold/page/10/",
+      "https://www.ctmpnumis.fr/en/product-category/gold/page/11/",
+      "https://www.ctmpnumis.fr/en/product-category/gold/page/12/",
+      "https://www.ctmpnumis.fr/en/product-category/gold/page/13/",
+      "https://www.ctmpnumis.fr/en/product-category/gold/page/14/",
+      "https://www.ctmpnumis.fr/en/product-category/gold/page/15/",
+      "https://www.ctmpnumis.fr/en/product-category/gold/page/16/",
+      "https://www.ctmpnumis.fr/en/product-category/gold/page/17/",
+      "https://www.ctmpnumis.fr/en/product-category/gold/page/18/",
+      "https://www.ctmpnumis.fr/en/product-category/gold/page/19/",
+      "https://www.ctmpnumis.fr/en/product-category/gold/page/20/",
+      "https://www.ctmpnumis.fr/en/product-category/gold/page/21/",
+      "https://www.ctmpnumis.fr/en/product-category/gold/page/22/"
+    ],
+    strategy: async (site) => {
+      for (let i = 0; i < site.reqUrls.length; i++) {
+        const url = site.reqUrls[i];
+        console.log('URL scraped:', url)
+        const response = await axios(url)
+        const html = response.data
+        const $ = cheerio.load(html)
+        $('.product-small.box', html).each(function () {
+          const photo = $(this).find('img').attr('src')
+          const title = $(this).find('a').text()
+          const rawPrice = $(this).find('.woocommerce-Price-amount').text()
+          const truePrice = rawPrice.split(',').join('')
+          const price = Number(parseFloat(truePrice))
+          const currency = $(this).find('.woocommerce-Price-currencySymbol').text()
+          const link = $(this).find('a').attr('href')
+          userRepository.insertData(new ScrapeData({
+            photo,
+            title,
+            price,
+            currency,
+            link
+          }));
+        })
+      }
+    }
   }]
 
   public scrape: any = async (req, res) => {
