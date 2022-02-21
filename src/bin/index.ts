@@ -5,7 +5,7 @@ import cheerio from 'cheerio'
 import express from 'express'
 const PORT = 3100
 const app = express()
-const reqUrl = "https://www.ctmpnumis.fr/en/product-category/gold/"
+const reqUrl = "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40047"
 
 
 async function pullData() {
@@ -13,21 +13,18 @@ async function pullData() {
     const html = response.data
     const $ = cheerio.load(html)
 
-    $('.product-small.box', html).each(function () {
-        console.log('NEW OFFER:')
-        const photo = $(this).find('img').attr('src')
+    $('.product-thumb', html).each(function () {
+        const photo = $('.image', this).find('img').attr('src')
         console.log('PHOTO:', photo)
-        const title = $(this).find('a').text()
+        const title = $('h4', this).find('a').text()
         console.log('TITLE:', title)
-        const rawPrice = $(this).find('.woocommerce-Price-amount').text()
-        console.log('RAWPRICE:', rawPrice)
-        const truePrice = rawPrice.split(',').join('')
-        console.log('TRUEPRICE:', truePrice)
-        const price = Number(parseFloat(truePrice))
+        const rawPrice = $('.price', this).text()
+        const text = rawPrice.split(',').join('')
+        const price = Number(parseFloat(text))
         console.log('PRICE:', price)
-        const currency = $(this).find('.woocommerce-Price-currencySymbol').text()
+        const currency = text.split(price.toFixed(2)).pop()
         console.log('CURRENCY:', currency)
-        const link = $(this).find('a').attr('href')
+        const link = $('h4', this).find('a').attr('href');
         console.log('LINK:', link)
     })
 }

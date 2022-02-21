@@ -118,7 +118,63 @@ export class HomeController {
   {
     title: 'Antika',
     reqUrls: [
-      "https://www.antika.fr/catalog2/"
+      "https://www.antika.fr/catalog2/",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40047&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40217&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40244&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40043&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40219&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40222&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40225&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40025&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40174&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40052&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40055&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40062&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40069&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40006&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40008&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40009&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40010&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40012&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40013&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40098&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40014&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40017&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40117&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40043&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40028&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40129&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40030&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40135&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40034&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40037&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40150&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10011_40215&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11499&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11516&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11520&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11534&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11536&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11546&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11548&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11550&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11554&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11556&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11560&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11562&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11566&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11568&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11570&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11572&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11574&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11576&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10009_11578&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10012_1999&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10012_2000&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10012_2001&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10012_2002&limit=100",
+      "https://antika.fr/catalog2/index.php?route=product/category&path=10012_2005&limit=100",
     ],
     strategy: async (site) => {
       for (let i = 0; i < site.reqUrls.length; i++) {
@@ -149,10 +205,8 @@ export class HomeController {
   {
     title: 'Inter Coin',
     reqUrls: [
-      "https://inter-coin.com/gold/gold-coins?limit=100",
-      "https://inter-coin.com/gold/gold-coins?limit=100&page=2",
-      "https://inter-coin.com/gold/gold-coins?limit=100&page=3",
-      "https://inter-coin.com/silver/silver-coins?limit=100"
+      "https://inter-coin.com/gold/gold-coins?limit=1000",
+      "https://inter-coin.com/silver/silver-coins?limit=1000"
     ],
     strategy: async (site) => {
       for (let i = 0; i < site.reqUrls.length; i++) {
@@ -244,7 +298,6 @@ export class HomeController {
         const html = response.data
         const $ = cheerio.load(html)
         $('.div_product_counter', html).each(function () {
-          console.log('NEW OFFER:')
           const photoPrefix = 'https://www.theopeters.com/images/productimages/small/'
           const photo = $(this).find('img').attr('data-image')
           const title = $(this).find('h2').text()
